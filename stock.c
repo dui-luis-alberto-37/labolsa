@@ -12,5 +12,6 @@ Stock newStock(char code[], float price, int nstocks){
   stock.max=price;
   stock.begin=price;
   stock.end=price;
+  stock.index_avg_price=0;
   return stock;
 }

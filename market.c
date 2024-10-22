@@ -40,6 +40,7 @@ int addUser(Market *market, User user){
 int buy_OPI(Stock *stock, User *user, int nstocks, float value){
   //printf("INFO1:nstocks=%i\tstock->nstocks=%i\n",nstocks,stock->nstocks);
   //printf("INFO2:%s\n",stock->code);
+  int last_stock;
   if ((nstocks > stock->nstocks) && (stock->nstocks > 0)){
     nstocks = stock->nstocks;
   }
@@ -48,7 +49,13 @@ int buy_OPI(Stock *stock, User *user, int nstocks, float value){
       user->money -= nstocks*value;
       stock->nstocks -= nstocks;
       //printf("INFO1:User:%i, Stock code:%s\n",user->index, stock->code);
-      insert(user,stock->code,nstocks);
+
+      //BUG6: add instead update
+      last_stock = get(*user,stock->code);
+      if(last_stock < 0){
+	last_stock = 0;
+      }
+      insert(user,stock->code,nstocks+last_stock);
       //printMap(*user);
       //printf("---------\n");
       return nstocks;
@@ -58,13 +65,16 @@ int buy_OPI(Stock *stock, User *user, int nstocks, float value){
 }
 
 void printMarket(Market *market){
+  float vstock;
   printf("Stocks:\n");
   for(int i=0; i < market->index_stock; i++){
     printf("%s\t%f\t%i\n",market->stocks[i].code,market->stocks[i].price,market->stocks[i].nstocks);
   }
   printf("Users:\n");
+  printf("INDEX\tCASH\t\tORDERS\t\tSTOCKS\t\tTOTAL\n");
   for(int i=0; i < market->index_user; i++){
-    printf("%i\t%f\n",market->users[i].index, market->users[i].money);
+    vstock = value_in_stocks(market,market->users[i]);
+    printf("%i\t%f\t%f\t%f\t%f\n",market->users[i].index, market->users[i].money, market->users[i].money_in_orders,vstock,market->users[i].money+market->users[i].money_in_orders+vstock);
     printMap(market->users[i]);
   }
 }
@@ -84,4 +94,42 @@ int remain_stocks(Market market){
       return 1;
   }
   return 0;
+}
+
+void print_divergence(Market *market){
+  int stocks,n,m,p;
+  printf("#Divergence\n");
+  printf("#CODE\tUSER\tORDER\tTOTAL\n");
+  m=0;
+  for (int i=0; i < market->index_stock; i++){
+    n=0;
+    p=0;
+    for (int j=0; j < market->index_user; j++){
+      stocks = get(market->users[j], market->stocks[i].code);
+      if (stocks > 0){
+	n+=stocks;
+      }
+    }
+
+    for (int j=0; j < market->index_order_sell; j++){
+      if (strcmp( market->orders_sell[j].stock->code, market->stocks[i].code) == 0){
+	p += market->orders_sell[j].n_actions;
+      }
+    }
+    
+    m += n+p;    
+    printf("#%s\t%i\t%i\t%i\n",market->stocks[i].code,n,p,n+p);
+  }
+  printf("#TOTAL=%i\n",m);
+}
+
+
+float get_value_of_stock(Market *market,char *code){
+  for(int i=0; i< market->index_stock;i++){
+    if(strcmp(market->stocks[i].code,code)==0){
+      return market->stocks[i].price;
+    }
+  }
+  printf("Warning: Stock value not found %s.\n",code);
+  return 0.0;
 }

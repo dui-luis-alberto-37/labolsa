@@ -8,6 +8,8 @@ extern "C" {
   typedef struct{
     char code[8];
     float price;
+    float avg_price[256]; //vector to compute average price
+    int index_avg_price;
     int nstocks; // stocks available for sell.
     float min;
     float max;

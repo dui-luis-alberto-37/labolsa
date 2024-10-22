@@ -25,6 +25,10 @@ extern "C" {
   int closeMarket(Market *market);
 
   int remain_stocks(Market market);
+
+  void print_divergence(Market *market);
+
+  float get_value_of_stock(Market *market,char *code);
   
 #ifdef __cplusplus
 } /* extern "C" */
