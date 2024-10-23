@@ -55,7 +55,7 @@ int montecarlo(Market *market){
   printf("#Executing orders...\n");
   for (int i=0; i < market->index_order_buy; i++){
     bid = market->orders_buy[i].bid;
-    
+
     ////////printf("Looking for seller [%i/%s/%i/%f]...",market->orders_buy[i].user->index ,market->orders_buy[i].stock->code,market->orders_buy[i].n_actions,bid);
     for (int j=0; j < market->index_order_sell; j++){
       ask = market->orders_sell[j].ask;
@@ -120,6 +120,8 @@ int montecarlo(Market *market){
 	// update the price of the stock
 	if (market->orders_sell[j].stock->begin_flag == 1){
 	  market->orders_sell[j].stock->begin = bid;
+	  market->orders_buy[i].stock->min = bid;
+	  market->orders_buy[i].stock->max = bid;
 	  market->orders_sell[j].stock->begin_flag = 0;
 	}
 	//BUG7 fixing average computations

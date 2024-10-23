@@ -73,7 +73,7 @@ int main(int argn, char **argv){
     //printMarket(market);
 
     printf("#Running Montecarlo...\n");
-    for(int i=0; i < 5; i++){
+    for(int i=0; i < 1000; i++){
       printf("#%i:",i);
       montecarlo(market);
       printJapaneseCandle(market);
