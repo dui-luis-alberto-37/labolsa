@@ -1,6 +1,8 @@
 # labolsa
 
-**By Victor De la Luz** <vdelaluz@enesmorelia.unam.mx> :mexico:
+**By Victor De la Luz** :mexico:
+
+<vdelaluz@enesmorelia.unam.mx> 
 
 Market model using Montecarlo. In this version we implement uniform random distribution probabilities for risk of each user in the market. We implements the offer-demand law and the maximum-winning and less-lost laws. The distribution of money is the same for all users and the stocks in the market are fullfilled in the IOP at the begining of the model. 
 
@@ -16,7 +18,7 @@ The code is licensed under [GNU/GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.h
 ```console
 labolsa <code> <users> <stocks> <orders>
 ```
-where
+where:
 * code: String of maximum 8 characters to generic name of set of stocks.
 * users: Number of players in the market.
 * stocks: Number of different company stocks in the market.
@@ -73,3 +75,7 @@ MEX9	10.013399	10.013399	10.129775	10.173284	10.199400
 * numpy
 * datetime
 * re
+
+### Testing
+The code was tested (passed) by lost of stock, tracing of excuted orders, and amount of money for each player.
+
