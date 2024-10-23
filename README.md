@@ -1,11 +1,18 @@
 # labolsa
-## Dr Victor De la Luz
-## By vdelaluz@enesmorelia.unam.mx
+## By Dr Victor De la Luz
+##    <vdelaluz@enesmorelia.unam.mx>
 
 Market model using Montecarlo
 
-make
+![labolsa results](https://raw.githubusercontent.com/itztli/labolsa/refs/heads/main/stock.png)
 
-./labolsa BMV 10 100 200000 > test1.dat
+![labolsa results](https://raw.githubusercontent.com/itztli/labolsa/refs/heads/main/stock2.png)
 
-./visualizacion.py
+### Running
+```console
+foo@bar:~$make
+foo@bar:~$./labolsa BMV 10 100 200000 > test1.dat
+foo@bar:~$./visualizacion.py
+```
+
+
