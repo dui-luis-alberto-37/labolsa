@@ -53,7 +53,7 @@ prices['Date'] = pd.to_datetime(prices['Date'])  # Asegurarse de que la columna 
 prices.set_index('Date', inplace=True)
 
 # Crear el gráfico de velas japonesas
-mpf.plot(prices, type='candle', volume=False, style='charles', title='Ejemplo de Velas Japonesas', ylabel='Precio')
+mpf.plot(prices, type='candle', volume=False, style='charles', title='Stock', ylabel='Price')
 
 # columnas importantes 
 #columns = ['Code', 'Min', 'Begin', 'Average', 'Close', 'Max']
