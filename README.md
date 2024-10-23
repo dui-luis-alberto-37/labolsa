@@ -1,7 +1,7 @@
 # labolsa
 
-** By Dr Victor De la Luz <vdelaluz@enesmorelia.unam.mx> ** :mexico:
-
+**By Dr Victor De la Luz <vdelaluz@enesmorelia.unam.mx>** :mexico:
+___
 Market model using Montecarlo.
 
 ## License 
