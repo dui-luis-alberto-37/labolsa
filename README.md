@@ -14,5 +14,13 @@ make
 ./labolsa BMV 10 100 200000 > test1.dat
 ./visualizacion.py
 ```
+### C requirements
+gcc
+GNUmakefile
 
-
+### Python requirements
+pandas
+mplfinance
+numpy
+datetime
+re

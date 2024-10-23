@@ -1,3 +1,24 @@
+/**
+    <labolsa> Montecarlo model of market stocks
+    Copyright (C) 2024  Victor De la Luz 
+                        <vdelaluz@enesmorelia.unam.mx>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+VERSION Beta (10/22/2024)
+**/
+
 #ifndef COMMON_H
 #define COMMON_H
 
@@ -5,8 +26,8 @@
 extern "C" {
 #endif /* __cplusplus */
 
-#define MAX_SIZE 500
-  // Maximum number of elements in the map 
+#define MAX_SIZE 512
+  // Maximum number of elements in the map (stocks by user)
 
     
   typedef struct{
@@ -14,7 +35,7 @@ extern "C" {
     float money; //total money of the user
     float money_in_orders; //money compromised in orders
     int size; // Current number of elements in the map 
-    char keys[MAX_SIZE][100]; // Array to store the keys 
+    char keys[MAX_SIZE][32]; // Array to store the keys (stock codes) 
     int values[MAX_SIZE]; // Array to store the values 
   }User;
 
