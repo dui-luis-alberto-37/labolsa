@@ -1,5 +1,6 @@
 # labolsa
-## By Dr Victor De la Luz <vdelaluz@enesmorelia.unam.mx>
+
+** By Dr Victor De la Luz <vdelaluz@enesmorelia.unam.mx> ** :mexico:
 
 Market model using Montecarlo.
 
@@ -18,12 +19,12 @@ make
 ./visualizacion.py
 ```
 ### C requirements
-*gcc
-*GNUmakefile
+* gcc
+* GNUmakefile
 
 ### Python requirements
-*pandas
-*mplfinance
-*numpy
-*datetime
-*re
+* pandas
+* mplfinance
+* numpy
+* datetime
+* re
