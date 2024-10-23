@@ -4,7 +4,7 @@
 
 <vdelaluz@enesmorelia.unam.mx> 
 
-Market model using Montecarlo. In this version we implement uniform random distribution probabilities for risk of each user in the market. We implements the offer-demand law and the maximum-winning and less-lost laws. The distribution of money is the same for all users and the stocks in the market are fullfilled in the IOP at the begining of the model. 
+Market model using Monte Carlo simulation. In this version, we implement uniform random distribution probabilities to represent the risk associated with each user in the market. The model incorporates the law of supply and demand, along with rules for maximizing gains and minimizing losses. The initial distribution of capital is equal for all users, and stocks in the market are fully allocated during the Initial Public Offering (IPO) at the beginning of the simulation.
 
 ## License 
 The code is licensed under [GNU/GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html#license-text).
@@ -19,13 +19,14 @@ The code is licensed under [GNU/GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.h
 labolsa <code> <users> <stocks> <orders>
 ```
 where:
-* code: String of maximum 8 characters to generic name of set of stocks.
-* users: Number of players in the market.
-* stocks: Number of different company stocks in the market.
-* orders: Maximum number of open orders for each step in the simulation.
+* Code: A string with a maximum length of 8 characters representing a generic name for a set of stocks.
+* Users: The total number of participants in the market.
+* Stocks: The number of different company stocks available in the market.
+* Orders: The maximum number of open orders allowed at each step of the simulation.
+
 
 > [!IMPORTANT]
-> The amount of money, number of actions by stocks, and begin price is fixed into the code.
+> For this version, the amount of money, the number of shares for each stock, and the initial price are fixed within the code.
 
 ### Example
 ```console
