@@ -2,7 +2,7 @@
 ## By Dr Victor De la Luz
 ##    <vdelaluz@enesmorelia.unam.mx>
 
-Market model using Montecarlo
+Market model using Montecarlo. License GNU/GPL.
 
 ![labolsa results](https://raw.githubusercontent.com/itztli/labolsa/refs/heads/main/stock.png)
 
@@ -10,9 +10,9 @@ Market model using Montecarlo
 
 ### Running
 ```console
-foo@bar:~$make
-foo@bar:~$./labolsa BMV 10 100 200000 > test1.dat
-foo@bar:~$./visualizacion.py
+make
+./labolsa BMV 10 100 200000 > test1.dat
+./visualizacion.py
 ```
 
 
