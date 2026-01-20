@@ -45,7 +45,7 @@ with open('test1.dat', 'r') as file:
     renglones = file.readlines()
     
     for renglon in renglones:
-        if renglon.startswith('MEX1'):
+        if renglon.startswith('TEST'):
             line = re.split(r'\s+', renglon.strip())  # Dividir la línea por espacios
             average.append(float(line[3]))
             Date.append(current_time)
@@ -73,7 +73,9 @@ prices['Date'] = pd.to_datetime(prices['Date'])  # Asegurarse de que la columna 
 prices.set_index('Date', inplace=True)
 
 # Crear el gráfico de velas japonesas
-mpf.plot(prices, type='candle', volume=False, style='charles', title='Stock', ylabel='Price')
+if renglones:
+    mpf.plot(prices, type='candle', volume=False, style='charles', title='Stock', ylabel='Price')
+else: print('El programa no se ejecuto adecuadamente')
 
 # columnas importantes 
 #columns = ['Code', 'Min', 'Begin', 'Average', 'Close', 'Max']
